@@ -12,6 +12,8 @@ Tämä tarkistuslista auttaa sivuston käyttöönotossa GitHub Pagesiin.
 
 ## Vaihe 2: Decap CMS -kirjautumisen asennus
 
+**HUOM:** Katso yksityiskohtaiset ohjeet tiedostosta [CMS_SETUP.md](CMS_SETUP.md)
+
 ### Vaihtoehto A: Netlify Identity (suositeltu)
 
 - [ ] Luo Netlify-tili osoitteessa https://netlify.com
@@ -21,48 +23,45 @@ Tämä tarkistuslista auttaa sivuston käyttöönotossa GitHub Pagesiin.
   - Publish directory: `_site`
 - [ ] Ota käyttöön Identity: Site settings → Identity → Enable Identity
 - [ ] Muuta rekisteröintiasetukset: Identity → Settings → Registration: **Invite only**
-- [ ] Lisää GitHub external provider: Identity → Settings → External providers
+- [ ] Lisää GitHub external provider: Identity → Settings → External providers → Add provider → GitHub
 - [ ] Kutsu käyttäjät: Identity → Invite users
-- [ ] Päivitä `admin/index.html` lisäämällä Netlify Identity widget:
-  ```html
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  ```
-- [ ] Varmista että `admin/config.yml` on asetettu:
-  ```yaml
-  backend:
-    name: git-gateway
-    branch: main
-  ```
-- [ ] Testaa kirjautuminen: `https://[domain]/admin/`
+- [ ] Netlify Identity widget on JO lisätty `admin/index.html` -tiedostoon ✓
+- [ ] `admin/config.yml` on JO asetettu git-gateway-backendille ✓
+- [ ] Testaa kirjautuminen: `https://skuutti.mikoma.fi/admin/`
 
-### Vaihtoehto B: GitHub Backend
+### Vaihtoehto B: GitHub OAuth (edistyneille)
 
-- [ ] Luo GitHub OAuth App (Settings → Developer settings → OAuth Apps)
-- [ ] Päivitä `admin/config.yml` GitHub-backendia varten
+**HUOM:** Tämäkin käyttää Netlifyä OAuth-välittäjänä!
+
+- [ ] Katso täydelliset ohjeet: [CMS_SETUP.md](CMS_SETUP.md) - Vaihtoehto B
+- [ ] Luo GitHub OAuth App
+- [ ] Määritä Netlify OAuth-provider
+- [ ] Päivitä `admin/config.yml`
 - [ ] Testaa kirjautuminen
 
-## Vaihe 3: Custom domain (valinnainen)
+## Vaihe 3: Custom domain (skuutti.mikoma.fi)
 
-- [ ] Luo `CNAME`-tiedosto repositorion juureen sisältäen domain-nimen
-- [ ] Aseta DNS-tietueet domain-palveluntarjoajalla:
+**HUOM:** Katso yksityiskohtaiset ohjeet tiedostosta [DNS_SETUP.md](DNS_SETUP.md)
+
+- [x] CNAME-tiedosto on JO luotu sisältäen: `skuutti.mikoma.fi` ✓
+- [x] _config.yml on JO päivitetty URL:lla ✓
+- [ ] Lisää DNS-tietue `mikoma.fi` -domainin hallintapaneeliin:
   ```
-  A    @    185.199.108.153
-  A    @    185.199.109.153
-  A    @    185.199.110.153
-  A    @    185.199.111.153
+  Tyyppi: CNAME
+  Nimi: skuutti
+  Arvo: [GITHUB-KÄYTTÄJÄNIMI].github.io.
   ```
-- [ ] Jos käytät www-alidomainia:
-  ```
-  CNAME www [käyttäjänimi].github.io
-  ```
-- [ ] GitHub Settings → Pages → Custom domain → Lisää domain
-- [ ] Odota DNS:n päivittymistä (voi kestää 24h)
-- [ ] Ota käyttöön "Enforce HTTPS"
-- [ ] Testaa sivusto omalla domainilla
+  **VAIHDA [GITHUB-KÄYTTÄJÄNIMI] omaan käyttäjänimeesi!**
+- [ ] Push muutokset GitHubiin
+- [ ] GitHub Settings → Pages → Custom domain → Kirjoita: `skuutti.mikoma.fi`
+- [ ] Klikkaa Save
+- [ ] Odota DNS:n päivittymistä (5-15 min, max 24h)
+- [ ] Kun DNS on valmis, ota käyttöön "Enforce HTTPS"
+- [ ] Testaa sivusto: `https://skuutti.mikoma.fi`
 
 ## Vaihe 4: Sisällön muokkaus
 
-- [ ] Kirjaudu CMS:ään: `https://[domain]/admin/`
+- [ ] Kirjaudu CMS:ään: `https://skuutti.mikoma.fi/admin/`
 - [ ] Päivitä yhteystiedot (sähköposti, puhelinnumero, osoite)
 - [ ] Päivitä "Tietoa meistä" -sisältö
 - [ ] Lisää ensimmäinen tapahtuma
