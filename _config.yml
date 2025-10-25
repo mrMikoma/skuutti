@@ -5,7 +5,7 @@ description: >-
   Tervetuloa Skuutti ry:n kotisivuille. Liity mukaan kilpailuihin,
   harjoituksiin ja sosiaalisiin tapahtumiin vesillä.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://skuutti.mikoma.fi" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
