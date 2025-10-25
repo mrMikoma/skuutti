@@ -1,0 +1,50 @@
+# Site settings
+title: Skuutti ry
+email: info@skuutti.fi
+description: >-
+  Tervetuloa Skuutti ry:n kotisivuille. Liity mukaan kilpailuihin,
+  harjoituksiin ja sosiaalisiin tapahtumiin vesillä.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Build settings
+markdown: kramdown
+theme: minima
+
+# Collections
+collections:
+  events:
+    output: true
+    permalink: /tapahtumat/:title/
+  gallery:
+    output: true
+    permalink: /galleria/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "events"
+    values:
+      layout: "event"
+  - scope:
+      path: ""
+      type: "gallery"
+    values:
+      layout: "gallery"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md

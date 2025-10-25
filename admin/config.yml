@@ -1,0 +1,78 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to main)
+
+# Uncomment below to enable drafts
+# publish_mode: editorial_workflow
+
+media_folder: "assets/images/uploads" # Media files will be stored here
+public_folder: "/assets/images/uploads" # The src attribute for uploaded media
+
+collections:
+  - name: "pages"
+    label: "Sivut"
+    files:
+      - label: "Etusivu"
+        name: "home"
+        file: "index.md"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "home"}
+          - {label: "Otsikko", name: "title", widget: "string"}
+          - {label: "Sisältö", name: "body", widget: "markdown"}
+
+      - label: "Tietoa meistä -sivu"
+        name: "about"
+        file: "about.md"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Otsikko", name: "title", widget: "string"}
+          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/tietoa/"}
+          - {label: "Sisältö", name: "body", widget: "markdown"}
+
+      - label: "Yhteystiedot-sivu"
+        name: "contact"
+        file: "contact.md"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Otsikko", name: "title", widget: "string"}
+          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/yhteystiedot/"}
+          - {label: "Sisältö", name: "body", widget: "markdown"}
+
+  - name: "events"
+    label: "Tapahtumat"
+    folder: "_events"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "event"}
+      - {label: "Otsikko", name: "title", widget: "string"}
+      - {label: "Päivämäärä", name: "date", widget: "datetime"}
+      - {label: "Paikka", name: "location", widget: "string", required: false}
+      - {label: "Kansikuva", name: "image", widget: "image", required: false}
+      - {label: "Kuvaus", name: "body", widget: "markdown"}
+
+  - name: "gallery"
+    label: "Galleria"
+    folder: "_gallery"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "gallery"}
+      - {label: "Otsikko", name: "title", widget: "string"}
+      - {label: "Päivämäärä", name: "date", widget: "datetime"}
+      - {label: "Kansikuva", name: "cover_image", widget: "image"}
+      - {label: "Kuvat", name: "images", widget: "list", field: {label: "Kuva", name: "image", widget: "image"}}
+      - {label: "Kuvaus", name: "body", widget: "markdown", required: false}
+
+  - name: "posts"
+    label: "Blogikirjoitukset"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
+      - {label: "Otsikko", name: "title", widget: "string"}
+      - {label: "Päivämäärä", name: "date", widget: "datetime"}
+      - {label: "Kirjoittaja", name: "author", widget: "string", required: false}
+      - {label: "Kansikuva", name: "image", widget: "image", required: false}
+      - {label: "Sisältö", name: "body", widget: "markdown"}

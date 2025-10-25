@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+<article class="event-detail">
+  <header>
+    <h1>{{ page.title }}</h1>
+    <p class="event-meta">
+      <strong>Päivämäärä:</strong> {{ page.date | date: "%-d.%-m.%Y klo %H:%M" }}
+      {% if page.location %}
+      <br><strong>Paikka:</strong> {{ page.location }}
+      {% endif %}
+    </p>
+  </header>
+
+  {% if page.image %}
+  <div class="event-image">
+    <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+  </div>
+  {% endif %}
+
+  <div class="event-content">
+    {{ content }}
+  </div>
+
+  <p><a href="{{ "/tapahtumat/" | relative_url }}">&larr; Takaisin tapahtumiin</a></p>
+</article>
