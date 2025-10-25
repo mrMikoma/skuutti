@@ -4,7 +4,7 @@ backend:
   branch: main
   base_url: https://api.netlify.com
   auth_endpoint: auth
-  site_domain: 06e571b3-a414-4575-b4b6-2376d3b73466
+  site_domain: 65071a49-08db-4385-8de8-b1044b8f8dc3
 
 # Uncomment below to enable drafts
 # publish_mode: editorial_workflow
