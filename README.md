@@ -1,6 +1,11 @@
 # Skuutti ry - Kotisivut
 
-Purjeseuran kotisivut toteutettu Jekyllillä ja Decap CMS:llä, julkaistaan GitHub Pages -palvelussa.
+Purjeseuran kotisivut toteutettu Jekyllillä ja Decap CMS:llä.
+
+## Osoitteet
+
+- **Julkinen sivusto:** https://skuutti.mikoma.fi (GitHub Pages)
+- **CMS-hallinta:** https://skuutticmstest.netlify.app/admin/ (Netlify)
 
 ## Ominaisuudet
 

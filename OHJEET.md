@@ -8,9 +8,17 @@ Sivut käyttävät Decap CMS -sisällönhallintajärjestelmää, jonka avulla vo
 
 ### Sisäänkirjautuminen
 
-1. Mene osoitteeseen: `https://[sinun-domain].github.io/admin/`
-2. Kirjaudu GitHub-tunnuksillasi
-3. Hyväksy tarvittavat käyttöoikeudet
+**TÄRKEÄÄ:** Käytä CMS:ää Netlify-osoitteessa!
+
+1. Mene osoitteeseen: **`https://skuutticmstest.netlify.app/admin/`**
+2. Klikkaa "Login with GitHub"
+3. Kirjaudu GitHub-tunnuksillasi
+4. Hyväksy tarvittavat käyttöoikeudet (ensimmäisellä kerralla)
+
+**HUOM:**
+- CMS-hallinta: `https://skuutticmstest.netlify.app/admin/`
+- Julkinen sivusto: `https://skuutti.mikoma.fi`
+- ÄLÄ käytä `skuutti.mikoma.fi/admin/` - se ei toimi OAuth-kirjautumisen kanssa!
 
 ### Sivujen muokkaaminen
 
